@@ -1,0 +1,262 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+    --color-primary: #edc84b;
+    --color-secondary: #e67e22;
+    --color-text: #252525;
+    --color-text-light: #6c757d;
+    --color-red: #e74c3c;
+    --color-grey-light: #f8f9fa;
+}
+
+/* Body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-grey-light);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.header h1 {
+    font-size: 52px;
+    color: var(--color-secondary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Menu Section */
+.menu {
+    margin-bottom: 60px;
+}
+
+.menu h2 {
+    display: inline-block;
+    padding: 10px 0;
+    border-top: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.menu-intro {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* Pizza List */
+.pizzas {
+    list-style: none;
+    display: grid;
+    gap: 40px;
+}
+
+/* Pizza Item */
+.pizza {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.pizza img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    align-self: flex-start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pizza-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 5px;
+}
+
+.pizza h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--color-text);
+}
+
+.pizza-ingredients {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.pizza-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-top: auto;
+}
+
+/* Sold Out Style */
+.pizza.sold-out {
+    opacity: 0.6;
+    filter: grayscale(1);
+}
+
+.pizza.sold-out .pizza-details {
+    position: relative;
+}
+
+.pizza.sold-out h3::after {
+    content: " (SOLD OUT)";
+    color: var(--color-red);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
+}
+
+.order {
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 18px;
+    color: var(--color-text);
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+/* Button */
+.btn {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(237, 200, 75, 0.4);
+}
+
+.btn:hover {
+    background-color: var(--color-secondary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(230, 126, 34, 0.5);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Closed Message */
+.footer.closed .footer-text {
+    color: var(--color-red);
+    font-weight: 500;
+}
+
+.footer.closed .btn {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .menu h2 {
+        font-size: 24px;
+    }
+
+    .menu-intro {
+        font-size: 16px;
+    }
+
+    .pizza {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .pizza img {
+        width: 100%;
+        height: 200px;
+        align-self: center;
+    }
+
+    .pizza h3 {
+        font-size: 20px;
+    }
+
+    .pizza-ingredients {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .menu h2 {
+        font-size: 20px;
+    }
+
+    .pizzas {
+        gap: 30px;
+    }
+}
