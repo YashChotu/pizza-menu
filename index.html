@@ -18,8 +18,30 @@
         <main class="menu">
             <h2>Our Menu</h2>
             <p class="menu-intro">
-                Authentic Italian cuisine. 6 creative dishes to choose from. All from our stone oven, all organic, all delicious.
+                Authentic Italian cuisine. 16 creative dishes to choose from. All from our stone oven, all organic, all delicious.
             </p>
+
+            <!-- Search and Filter Section -->
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search pizzas...">
+                </div>
+                <div class="filter-controls">
+                    <select id="sortSelect" class="filter-select">
+                        <option value="">Sort by...</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A-Z</option>
+                        <option value="rating">Rating: High to Low</option>
+                    </select>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Pizzas</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="meat">Meat</option>
+                        <option value="available">Available Only</option>
+                    </select>
+                </div>
+            </div>
 
             <ul class="pizzas" id="pizzaList">
                 <!-- Pizzas will be loaded by JavaScript -->
@@ -31,9 +53,36 @@
                 <p class="footer-text">
                     We're open from 12:00 to 22:00. Come visit us or order online.
                 </p>
-                <button class="btn">Order Now</button>
+                <!-- Shopping Cart -->
+                <div class="cart-summary" id="cartSummary">
+                    <div class="cart-info">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                        <span class="cart-total">$0.00</span>
+                    </div>
+                </div>
+                <button class="btn" id="orderBtn">Order Now</button>
             </div>
         </footer>
+
+        <!-- Cart Modal -->
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>🛒 Your Cart</h3>
+                    <button class="close-modal" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body" id="cartItems">
+                    <p class="empty-cart">Your cart is empty</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="cart-total-display">
+                        <strong>Total: <span id="modalTotal">$0.00</span></strong>
+                    </div>
+                    <button class="btn btn-checkout" id="checkoutBtn">Checkout</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/pizzaData.js"></script>
